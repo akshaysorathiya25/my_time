@@ -29,13 +29,8 @@ const calc = () => {
   const effectiveMin = parseInt(document.getElementById("effectiveM").value);
   const lastHours = parseInt(document.getElementById("lastpunchH").value);
   const lastMin = parseInt(document.getElementById("lastpunchM").value);
-  // Adjust effective and last values to get the desired output 7:13
-  const adjustedEffectiveHours = 8 - 1; // 8 - 1 = 7
-  const adjustedEffectiveMin = 60 - 13; // 60 - 13 = 47
-
-  // Add 30 minutes
-  let remainingHours = adjustedEffectiveHours + lastHours;
-  let remainingMin = adjustedEffectiveMin + lastMin + 30; // Add 30 minutes
+  let remainingHours = 8 - effectiveHours + lastHours;
+  let remainingMin = 30 - effectiveMin + lastMin;
   if (remainingMin >= 60) {
     remainingHours++;
     remainingMin = Math.abs(60 - remainingMin);
